@@ -25,8 +25,21 @@ export class LayoutService {
     return this.http.get<Link[]>(this.baseUrl + 'api/Layout/GetLinks/' + layoutId)
   }
 
-  updateTables(layoutId: number, tables: Table[]) {
-
+  saveLayout(layout: Layout, tables: Table[], links: Link[]) {
+    var url = this.baseUrl + 'api/Layout/SaveLayout';
+    var body = {
+      layout: layout,
+      tables: tables,
+      links: links
+    }
+    this.http.post(url, body).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log("Error occured");
+      }
+    );
   }
 
   saveTables(tables: Table[]) {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Link } from '../../entities/link';
-import { SaveStateService } from '../services/save-state.service';
+import { Link } from '../../../../entities/link';
+import { SaveStateService } from '../../../services/save-state.service';
 
 @Component({
   selector: 'app-table-link-editor',

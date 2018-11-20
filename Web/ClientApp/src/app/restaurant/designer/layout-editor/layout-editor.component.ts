@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Layout } from '../../entities/layout';
-import { SaveStateService } from '../services/save-state.service';
+import { Layout } from '../../../../entities/layout';
+import { SaveStateService } from '../../../services/save-state.service';
 
 @Component({
   selector: 'app-layout-editor',

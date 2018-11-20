@@ -37,5 +37,12 @@ namespace Web.Controllers
         {
             return layoutService.GetLinks(layoutId);
         }
+
+        [HttpPost("[action]")]
+        public string SaveLayout([FromBody] SaveLayoutRequestModel request)
+        {
+            this.layoutService.SaveLayout(request.Layout, request.Tables, request.Links);
+            return "success";
+        }
     }
 }

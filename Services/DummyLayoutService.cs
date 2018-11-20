@@ -15,6 +15,7 @@ namespace Services
                 new Table()
                 {
                     TableId = 1,
+                    LayoutId = 1,
                     Name = "Table1",
                     ShapeType = ShapeType.Rectangle,
                     X = 10,
@@ -27,6 +28,7 @@ namespace Services
                 new Table()
                 {
                     TableId = 2,
+                    LayoutId = 1,
                     Name = "Table2",
                     ShapeType = ShapeType.Rectangle,
                     X = 20,
@@ -39,6 +41,7 @@ namespace Services
                 new Table()
                 {
                     TableId = 3,
+                    LayoutId = 1,
                     Name = "Table3",
                     ShapeType = ShapeType.Circle,
                     X = 30,
@@ -95,6 +98,7 @@ namespace Services
             var tableOne = new Table()
             {
                 TableId = 1,
+                LayoutId = 1,
                 Name = "Table1",
                 ShapeType = ShapeType.Rectangle,
                 X = 10,
@@ -107,6 +111,7 @@ namespace Services
             var tableTwo = new Table()
             {
                 TableId = 2,
+                LayoutId = 1,
                 Name = "Table2",
                 ShapeType = ShapeType.Rectangle,
                 X = 20,
@@ -150,6 +155,11 @@ namespace Services
                 new LinkViewModel(link2),
                 new LinkViewModel(link3)
             };
+        }
+
+        public string SaveLayout(Layout layout, List<Table> tables, List<Link> links)
+        {
+            return "";
         }
     }
 }

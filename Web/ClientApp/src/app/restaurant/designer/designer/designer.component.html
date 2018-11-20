@@ -1,4 +1,4 @@
-<app-restaurant-designer-nav  class="col-sm-2" (layoutSelected)="selectLayout($event)"></app-restaurant-designer-nav>
+<app-designer-nav  class="col-sm-2" (layoutSelected)="selectLayout($event)"></app-designer-nav>
 <div class="col-sm-7">
   <button (click)="save()">Save</button>
   <app-layout *ngIf="layout" [tables]="tables" [clickMode]="clickMode" (tableSelected)="selectTable($event)" (linkAdded)="addLink($event)"></app-layout>

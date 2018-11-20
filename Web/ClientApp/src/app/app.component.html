@@ -1,3 +1,4 @@
 <div class='container-fluid'>
-  <router-outlet></router-outlet>
+  <app-restaurant> *ngIf="isRestaurant"></app-restaurant>
+  <app-customer *ngIf="!isRestaurant"></app-customer>
 </div>

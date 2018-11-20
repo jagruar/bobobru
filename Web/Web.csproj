@@ -12,6 +12,10 @@
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
@@ -25,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\layout\layout.component.ts" />
-    <None Remove="ClientApp\src\app\restaurant-designer\restaurant-designer.component.ts" />
+    <None Remove="ClientApp\src\app\restaurant\designer\designer\designer.component.ts" />
+    <None Remove="ClientApp\src\app\restaurant\designer\layout\layout.component.ts" />
     <None Remove="ClientApp\src\app\services\save-state.service.ts" />
     <None Remove="ClientApp\src\entities\clickMode.ts" />
     <None Remove="ClientApp\src\entities\layout.ts" />
@@ -40,13 +44,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\layout\layout.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\restaurant-designer\restaurant-designer.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\restaurant\designer\layout\layout.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\restaurant\designer\designer\designer.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\save-state.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\entities\layout.ts" />
     <TypeScriptCompile Include="ClientApp\src\entities\clickMode.ts" />
     <TypeScriptCompile Include="ClientApp\src\entities\table.ts" />
     <TypeScriptCompile Include="ClientApp\src\entities\link.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\customer\booking\" />
+    <Folder Include="ClientApp\src\app\customer\account\" />
+    <Folder Include="ClientApp\src\app\restaurant\foh\" />
+    <Folder Include="ClientApp\src\app\restaurant\analytics\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { Table } from '../../entities/table'
-import { SaveStateService } from '../services/save-state.service';
-import { ClickMode } from '../../entities/clickMode';
+import { Table } from '../../../../entities/table'
+import { SaveStateService } from '../../../services/save-state.service';
+import { ClickMode } from '../../../../entities/clickMode';
 
 const defaultTableName = 'My New Table';
 const defaultTableWidth = 10;
@@ -18,6 +18,7 @@ export class LayoutComponent implements OnInit {
   @Output() tablesSaved = new EventEmitter();
   @Output() linkAdded = new EventEmitter();
   private link = [];
+  private nextId = -1
 
   constructor(private saveState: SaveStateService) { }
 
@@ -71,17 +72,24 @@ export class LayoutComponent implements OnInit {
     })
   }
 
-  addTable(x: number, y: number, radius: number) {
+  addTable(x: number, y: number, r: number) {
+    var table = this.makeTable(x, y, r);
+    this.tables.push(table);
+    this.saveState.break();
+  }
+
+  makeTable(x: number, y: number, r: number): Table {
     var table = <Table>{}
+    table.tableId = this.nextId;
     table.name = defaultTableName;
     table.seatCount = 0;
     table.x = x;
     table.y = y;
-    table.radius = radius;
-    table.height = (radius == 0) ? defaultTableHeight : 0;
-    table.width = (radius == 0) ? defaultTableWidth : 0;
-    this.tables.push(table);
-    this.saveState.break();
+    table.radius = r;
+    table.height = (r == 0) ? defaultTableHeight : 0;
+    table.width = (r == 0) ? defaultTableWidth : 0;
+    this.nextId--;
+    return table;
   }
 
   getColour(selected: boolean) {

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Table } from '../../entities/table';
-import { Layout } from '../../entities/layout';
-import { LayoutService } from '../services/layout.service';
-import { Link } from '../../entities/link';
-import { SaveStateService } from '../services/save-state.service';
-import { ClickMode } from '../../entities/clickMode';
+import { Table } from '../../../../entities/table';
+import { Layout } from '../../../../entities/layout';
+import { LayoutService } from '../../../services/layout.service';
+import { Link } from '../../../../entities/link';
+import { SaveStateService } from '../../../services/save-state.service';
+import { ClickMode } from '../../../../entities/clickMode';
 
 @Component({
-  selector: 'app-restaurant-designer',
-  templateUrl: './restaurant-designer.component.html',
+  selector: 'app-designer',
+  templateUrl: './designer.component.html',
 })
-export class RestaurantDesignerComponent implements OnInit {
+export class DesignerComponent implements OnInit {
   public tables: Table[];
   public table: Table;
   public links: Link[];
@@ -74,7 +74,7 @@ export class RestaurantDesignerComponent implements OnInit {
   }
 
   save() {
-    // biiiiig operation in here
+    this.layoutService.saveLayout(this.layout, this.tables, this.links);
     this.saveState.reset();
   }
 

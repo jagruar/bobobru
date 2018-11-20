@@ -6,11 +6,11 @@ namespace Models.Entities
 {
     public class User
     {
-        public int UserId { get; set; }
+        public int UserID { get; set; }
         public string Name { get; set; }
 
         public int Score { get; set; }
 
-        public ICollection<Booking> Bookings { get; set; }
+        public ICollection<UserBooking> UserBookings { get; set; }
     }
 }

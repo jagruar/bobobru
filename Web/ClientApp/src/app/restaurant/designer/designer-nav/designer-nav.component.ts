@@ -1,19 +1,19 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { LayoutService } from '../services/layout.service'
-import { Layout } from '../../entities/layout'
+import { LayoutService } from '../../../services/layout.service'
+import { Layout } from '../../../../entities/layout'
 import { DomSanitizer } from '@angular/platform-browser';
 import { map, retry } from 'rxjs/operators';
-import { SaveStateService } from '../services/save-state.service';
+import { SaveStateService } from '../../../services/save-state.service';
 
 
 const blankSvg = '<svg viewBox="0 0 100 100"></svg>';
 
 @Component({
-  selector: 'app-restaurant-designer-nav',
-  templateUrl: './restaurant-designer-nav.component.html',
-  styleUrls: ['./restaurant-designer-nav.component.css']
+  selector: 'app-designer-nav',
+  templateUrl: './designer-nav.component.html',
+  styleUrls: ['./designer-nav.component.css']
 })
-export class RestaurantDesignerNavComponent implements OnInit {
+export class DesignerNavComponent implements OnInit {
   @Input() id = 1;
   @Output() layoutSelected = new EventEmitter();
   public layouts: Layout[]; 

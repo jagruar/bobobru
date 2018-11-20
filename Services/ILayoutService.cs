@@ -8,7 +8,7 @@ namespace Services
 {
     public interface ILayoutService
     {
-        string SaveLayout(Layout layout);
+        string SaveLayout(Layout layout, List<Table> tables, List<Link> links);
 
         Table GetTable(int tableId);
 
